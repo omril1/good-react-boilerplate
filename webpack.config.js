@@ -7,6 +7,32 @@ const isProduction = process.argv.indexOf('-p') >= 0;
 const outPath = Path.join(__dirname, './dist');
 const sourcePath = Path.join(__dirname, './src');
 
+const cssLoaders = [
+  {
+    loader: 'css-loader',
+    query: {
+      modules: true,
+      sourceMap: !isProduction,
+      importLoaders: 1,
+      localIdentName: '[local]__[hash:base64:5]'
+    }
+  },
+  {
+    loader: 'postcss-loader',
+    options: {
+      ident: 'postcss',
+      plugins: [
+        require('postcss-import')({ addDependencyTo: Webpack }),
+        require('postcss-url')(),
+        require('postcss-cssnext')(),
+        require('postcss-reporter')(),
+        require('postcss-browser-reporter')({ disabled: isProduction }),
+      ]
+    }
+  }
+];
+const sassLoaders = [...cssLoaders, { loader: 'sass-loader', options: { sourceMap: false } }];
+
 module.exports = {
   context: sourcePath,
   entry: {
@@ -48,30 +74,14 @@ module.exports = {
         test: /\.css$/,
         use: ExtractTextPlugin.extract({
           fallback: 'style-loader',
-          use: [
-            {
-              loader: 'css-loader',
-              query: {
-                modules: true,
-                sourceMap: !isProduction,
-                importLoaders: 1,
-                localIdentName: '[local]__[hash:base64:5]'
-              }
-            },
-            {
-              loader: 'postcss-loader',
-              options: {
-                ident: 'postcss',
-                plugins: [
-                  require('postcss-import')({ addDependencyTo: Webpack }),
-                  require('postcss-url')(),
-                  require('postcss-cssnext')(),
-                  require('postcss-reporter')(),
-                  require('postcss-browser-reporter')({ disabled: isProduction }),
-                ]
-              }
-            }
-          ]
+          use: cssLoaders
+        })
+      },
+      {
+        test: /\.scss$/,
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: sassLoaders
         })
       },
       // static assets
