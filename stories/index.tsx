@@ -6,14 +6,7 @@ import { action } from '@storybook/addon-actions';
 import { linkTo } from '@storybook/addon-links';
 
 import { Button, Welcome } from '@storybook/react/demo';
-
-class NewComponent extends React.Component {
-  render() {
-    return (
-      <div className={style.someStyle}> This is just a test !!! </div>
-    );
-  }
-}
+import { NewComponent } from '../src/components/NewComponent';
 
 storiesOf('NewComponent', module).add('to NewComponent', () => <NewComponent />);
 
