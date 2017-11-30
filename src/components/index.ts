@@ -1,1 +1,1 @@
-export { NewComponent } from './NewComponent';
+export { Accordion } from './Accordion';

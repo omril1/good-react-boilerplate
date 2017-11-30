@@ -1,10 +1,11 @@
 import * as React from 'react';
 import * as TodoActions from '../../actions/todos';
-import * as style from './style.css';
+import * as style from './style.scss';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { RouteComponentProps } from 'react-router';
 import { RootState } from '../../reducers';
+import { Accordion } from '../../components/index';
 
 export namespace App {
   export interface Props extends RouteComponentProps<void> {
@@ -21,10 +22,10 @@ export namespace App {
 export class App extends React.Component<App.Props, App.State> {
 
   render() {
-    const { todos, actions, children } = this.props;
+    const { todos, actions } = this.props;
     return (
       <div className={style.normal}>
-        {children}
+        <Accordion accordionGroups={[]}/>
       </div>
     );
   }

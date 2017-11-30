@@ -1,0 +1,8 @@
+.Collapseable {
+  width: 100%; height: 400px;
+  margin: 0; padding: 0;
+  background-color: cornflowerblue;
+
+  overflow: hidden;
+  transition: max-height .5s 0s ease-in-out;
+}

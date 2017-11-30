@@ -1,0 +1,20 @@
+.accordion {
+  width: 200px; height: 100vh;
+  background-color: #DDDDDD;
+  overflow-y: scroll;
+}
+
+.accordionLabel {
+  display: flex;
+  height: 30px;
+  background-color: #FDFDFD;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+}
+
+.AccordionSubItem {
+  padding: 5px;
+  border-bottom: 1px solid rgba(#DDDDDD, 0.3);
+}

@@ -1,16 +1,15 @@
-# Frontend Boilerplate with React, Redux & TypeScript
+# Frontend Boilerplate with React, Redux, Storybook, Jest, SASS & TypeScript
 
-A bare minimum react-redux-webpack-typescript boilerplate with TodoMVC example.
+Based/Forked From: [react-redux-typescript-boilerplate](https://github.com/rokoroku/react-redux-typescript-boilerplate)
 
-Note that this project does not include **Server-Side Rendering**,  **Testing Frameworks** and other stuffs that makes the package unnecessarily complicated.
+Note that this project does not include **Server-Side Rendering**.
 
 Ideal for creating React apps from the scratch.
 
-See also: [react-mobx-typescript-boilerplate](https://github.com/rokoroku/react-mobx-typescript-boilerplate)
-
-### Branches
-- [`feature-tslint`](https://github.com/rokoroku/react-redux-typescript-boilerplate/tree/feature/tslint): yarn + tslint + prettier integrated branch.
-
+See also:
+      - [react-mobx-typescript-boilerplate](https://github.com/rokoroku/react-mobx-typescript-boilerplate)
+      - [react-redux-typescript-boilerplate](https://github.com/rokoroku/react-redux-typescript-boilerplate)
+          
 ## Contains
 
 - [x] [Typescript](https://www.typescriptlang.org/) 2.5
@@ -18,7 +17,8 @@ See also: [react-mobx-typescript-boilerplate](https://github.com/rokoroku/react-
 - [x] [Redux](https://github.com/reactjs/redux) 3.7
 - [x] [React Router](https://github.com/ReactTraining/react-router) 4.2
 - [x] [Redux DevTools Extension](https://github.com/zalmoxisus/redux-devtools-extension)
-- [x] [TodoMVC example](http://todomvc.com)
+- [x] [Storybook for React](https://github.com/storybooks/storybook)
+- [x] [Jest](https://facebook.github.io/jest/)
 
 ### Build tools
 
@@ -29,6 +29,7 @@ See also: [react-mobx-typescript-boilerplate](https://github.com/rokoroku/react-
 - [x] [PostCSS Loader](https://github.com/postcss/postcss-loader)
   - [x] [CSS next](https://github.com/MoOx/postcss-cssnext)
   - [x] [CSS modules](https://github.com/css-modules/css-modules)
+- [x] [SASS loader](https://github.com/webpack-contrib/sass-loader)
 - [x] [React Hot Loader](https://github.com/gaearon/react-hot-loader)
 - [x] [ExtractText Plugin](https://github.com/webpack/extract-text-webpack-plugin)
 - [x] [HTML Webpack Plugin](https://github.com/ampedandwired/html-webpack-plugin)
@@ -50,6 +51,12 @@ $ npm start
 
 ```
 $ npm run build
+```
+
+## Test
+
+```
+$ npm run test
 ```
 
 # License
