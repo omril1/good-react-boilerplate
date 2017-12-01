@@ -11,11 +11,19 @@ import { Accordion } from '../src/components';
 
 
 const accordionGroups = [
-  { id: 1, name: 'group 1', items: [1, 2, 3], open: false},
-  { id: 2, name: 'group 2', items: [4, 5, 6], open: false},
-  { id: 3, name: 'group 3', items: [7, 8, 9], open: false},
+  { id: 1, name: 'group 1', items: [1, 2, 3] },
+  { id: 2, name: 'group 2', items: [4, 5, 6] },
+  { id: 3, name: 'group 3', items: [7, 8, 9] },
 ]
 storiesOf('Accordion', module).add('to Accordion', () => <Accordion accordionGroups={accordionGroups} />);
+
+const accordionGroups2 = [
+  { id: 1, name: 'group 1', items: [1, 2, 3, 2, 3] },
+  { id: 2, name: 'group 2', items: [4, 5, 6, 5, 6] },
+  { id: 3, name: 'group 3', items: [7, 8, 9, 8, 9] },
+  { id: 3, name: 'group 3', items: [7, 8, 9, 8, 9] },
+]
+storiesOf('Accordion', module).add('another Accordion', () => <Accordion accordionGroups={accordionGroups2} />);
 
 
 

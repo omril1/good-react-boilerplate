@@ -11,7 +11,6 @@ namespace Accordion {
   };
   export type Props = {
     accordionGroups: accordionGroup[];
-    // groupOpened: (id: number) => void;
   }
   export type State = {
     openedGroup: number;
@@ -26,12 +25,8 @@ export class Accordion extends React.Component<Accordion.Props, Accordion.State>
   render() {
     return (
       <div className={style.accordion}>
-        {/* <AccordionGroup labelClicked={this.labelClicked} /> */}
-        {/* {this.state.groups} */}
         {
-          this.props.accordionGroups.map(group => {
-            return <AccordionGroup key={group.id} id={group.id} open={group.id == this.state.openedGroup} labelClicked={this.labelClicked} />
-          })
+          this.props.accordionGroups.map(this.accordionGroupMapper, this)
         }
       </div>
     );
@@ -39,9 +34,13 @@ export class Accordion extends React.Component<Accordion.Props, Accordion.State>
 
   labelClicked = (id: number) => {
     const groupToOpenId = id == this.state.openedGroup ? -1 : id;
-    // this.props.groupOpened(groupToOpenId);
+
     this.setState({
       openedGroup: groupToOpenId
     });
+  }
+
+  accordionGroupMapper(group, index) {
+    return <AccordionGroup key={index} id={index} items={group.items} name={group.name} open={group.id == this.state.openedGroup} labelClicked={this.labelClicked} />
   }
 }
