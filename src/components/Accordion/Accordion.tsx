@@ -3,12 +3,13 @@ import * as style from './style.scss';
 import { Collapseable } from '../Collapseable';
 import { AccordionGroup } from './AccordionGroup';
 
+
+type accordionGroup = {
+  name: string;
+  items: any[];
+};
+
 namespace Accordion {
-  export type accordionGroup = {
-    id: number;
-    name: string;
-    items: any[];
-  };
   export type Props = {
     accordionGroups: accordionGroup[];
   }
@@ -18,9 +19,14 @@ namespace Accordion {
 }
 
 export class Accordion extends React.Component<Accordion.Props, Accordion.State> {
-  state = {
-    openedGroup: -1
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      openedGroup: -1
+    };
+
+    this.labelClicked = this.labelClicked.bind(this);
+  }
 
   render() {
     return (
@@ -32,15 +38,18 @@ export class Accordion extends React.Component<Accordion.Props, Accordion.State>
     );
   }
 
-  labelClicked = (id: number) => {
-    const groupToOpenId = id == this.state.openedGroup ? -1 : id;
-
+  labelClicked(id: number) {
+    console.log('this.state', this.state);
+    
+    const groupToOpenIndex = id == this.state.openedGroup ? -1 : id;
+    console.log('groupToOpenIndex: ', groupToOpenIndex);
+    
     this.setState({
-      openedGroup: groupToOpenId
+      openedGroup: groupToOpenIndex
     });
   }
 
-  accordionGroupMapper(group, index) {
-    return <AccordionGroup key={index} id={index} items={group.items} name={group.name} open={group.id == this.state.openedGroup} labelClicked={this.labelClicked} />
+  accordionGroupMapper(group: accordionGroup, index: number) {
+    return <AccordionGroup key={index} index={index} items={group.items} name={group.name} open={index == this.state.openedGroup} labelClicked={this.labelClicked} />
   }
 }

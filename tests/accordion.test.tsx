@@ -8,7 +8,7 @@ type AccordionProps = {
   accordionGroups: { id: number, items: number[], name: string }[]
 }
 let accordion: React.ReactElement<AccordionProps>,
-    $accordion: Cheerio;
+  $accordion: Cheerio;
 
 test("accordion test", () => {
   expect(3 + 5).toBe(8);
@@ -16,7 +16,7 @@ test("accordion test", () => {
 
 
 beforeEach(() => {
-  accordion = <Accordion accordionGroups={[{ id: 1, items: [1, 2, 3], name: 'just a name' }]} />;
+  accordion = <Accordion accordionGroups={[{ items: [1, 2, 3], name: 'just a name' }]} />;
   $accordion = Enzyme.render(accordion);
 })
 

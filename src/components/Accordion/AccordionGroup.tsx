@@ -2,10 +2,11 @@ import * as React from 'react';
 import * as style from './style.scss';
 import { Collapseable } from '../Collapseable/index';
 import { AccordionSubItem } from './AccordionSubItem';
+import { MouseEvent } from 'react';
 
 type AccordionGroupProps = {
-  labelClicked: (id) => void;
-  id: number;
+  labelClicked: (index) => void;
+  index: number;
   open?: boolean;
   name: string;
   items: any[];
@@ -19,7 +20,7 @@ export class AccordionGroup extends React.Component<AccordionGroupProps> {
     return (
       <div>
         <label className={style.accordionLabel} onClick={this.labelClicked}>
-          <span>Click Me ({this.props.id})</span>
+          <span>Click Me ({this.props.index})</span>
         </label>
         <Collapseable open={this.props.open} itemsCount={items.length}>
           {
@@ -30,8 +31,9 @@ export class AccordionGroup extends React.Component<AccordionGroupProps> {
     );
   }
 
-  labelClicked = (e) => {
-    this.props.labelClicked(this.props.id);
+  labelClicked = (e: MouseEvent<HTMLElement>) => {
+    console.log('index: ', this.props.index);
+    this.props.labelClicked(this.props.index);
   }
 }
 
