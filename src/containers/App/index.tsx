@@ -1,5 +1,4 @@
 import * as React from 'react';
-import * as TodoActions from '../../actions/todos';
 import * as style from './style.scss';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
@@ -9,8 +8,6 @@ import { Accordion } from '../../components/index';
 
 export namespace App {
   export interface Props extends RouteComponentProps<void> {
-    todos: TodoItemData[];
-    actions: typeof TodoActions;
   }
 
   export interface State {
@@ -18,14 +15,18 @@ export namespace App {
   }
 }
 
+const accordionGroups = [
+  { id: 1, name: 'group 1', items: [1, 2, 3] },
+  { id: 2, name: 'group 2', items: [4, 5, 6] },
+  { id: 3, name: 'group 3', items: [7, 8, 9] },
+]
 @connect(mapStateToProps, mapDispatchToProps)
 export class App extends React.Component<App.Props, App.State> {
 
   render() {
-    const { todos, actions } = this.props;
     return (
       <div className={style.normal}>
-        <Accordion accordionGroups={[]}/>
+        <Accordion accordionGroups={accordionGroups}/>
       </div>
     );
   }
@@ -33,12 +34,10 @@ export class App extends React.Component<App.Props, App.State> {
 
 function mapStateToProps(state: RootState) {
   return {
-    todos: state.todos
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    actions: bindActionCreators(TodoActions as any, dispatch)
   };
 }
