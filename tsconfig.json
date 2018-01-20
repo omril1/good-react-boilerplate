@@ -9,9 +9,10 @@
     "experimentalDecorators": true,
     "declaration": false,
     "noImplicitAny": false,
-    "noImplicitReturns": false,
+    "noImplicitReturns": true,
     "allowSyntheticDefaultImports": true,
     "removeComments": true,
+    "baseUrl": "./src",
     "strictNullChecks": true,
     "outDir": "build",
     "lib": [

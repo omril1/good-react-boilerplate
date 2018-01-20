@@ -6,9 +6,12 @@ import { Router, Route, Switch } from 'react-router';
 import { createBrowserHistory } from 'history';
 import { configureStore } from './store';
 import { App } from './containers/App';
+import { getDate } from 'utils/absoluteImports';
 
 const store = configureStore();
 const history = createBrowserHistory();
+
+console.log(getDate());
 
 ReactDOM.render(
   <Provider store={store}>

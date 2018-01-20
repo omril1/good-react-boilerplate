@@ -2,7 +2,6 @@ import * as React from 'react';
 import * as style from './style.scss';
 import { Collapseable } from '../Collapseable/index';
 import { AccordionSubItem } from './AccordionSubItem';
-import { MouseEvent } from 'react';
 
 type AccordionGroupProps = {
   labelClicked: (index) => void;
@@ -31,12 +30,12 @@ export class AccordionGroup extends React.Component<AccordionGroupProps> {
     );
   }
 
-  labelClicked = (e: MouseEvent<HTMLElement>) => {
+  labelClicked = (e: React.MouseEvent<HTMLElement>) => {
     console.log('index: ', this.props.index);
     this.props.labelClicked(this.props.index);
   }
 }
 
-function subItemsMapper (value, index) {
+function subItemsMapper(value, index) {
   return <AccordionSubItem key={index} text={'item ' + value} />;
 }
