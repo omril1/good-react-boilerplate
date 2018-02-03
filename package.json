@@ -9,6 +9,7 @@
     "coverage": "jest --coverage",
     "start": "webpack-dev-server --debug --devtool cheap-module-source-map --output-pathinfo --history-api-fallback --hot --inline --progress --colors --port 3000 --open",
     "build": "webpack -p --progress --colors",
+    "g-component": "yo ./generators/component",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },
@@ -55,7 +56,8 @@
     "typescript": "^2.6.1",
     "url-loader": "^0.6.2",
     "webpack": "^3.10.0",
-    "webpack-dev-server": "^2.9.4"
+    "webpack-dev-server": "^2.9.4",
+    "yeoman-generator": "^2.0.2"
   },
   "dependencies": {
     "classnames": "^2.2.5",
