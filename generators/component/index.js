@@ -16,6 +16,12 @@ module.exports = class extends Generator {
     });
   }
 
+  optionsHelp() {
+    return `${chalk.green('--name')} or ${chalk.green('--componentName')}
+\t The name of the component
+\t type: ${chalk.bold('String')}`;
+  }
+
   prompting() {
     return this.prompt([
       {
